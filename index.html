@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOLF STUDIO SHADOW | 大阪No.1コスパの高級インドアゴルフ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-black': '#050505',
+                        'brand-dark': '#121212',
+                        'brand-gray': '#1e1e1e',
+                        'brand-lime': '#ccff00',
+                        'brand-pink': '#ff0099',
+                        'brand-cyan': '#00f0ff',
+                        'brand-gold': '#ffd700',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                        english: ['"Poppins"', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'marquee': 'marquee 25s linear infinite',
+                        'shine': 'shine 3s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { opacity: '1', boxShadow: '0 0 20px #ccff00' },
+                            '50%': { opacity: '.8', boxShadow: '0 0 10px #ccff00' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        shine: {
+                            '0%': { left: '-100%' },
+                            '20%': { left: '100%' },
+                            '100%': { left: '100%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .text-outline {
+            -webkit-text-stroke: 1px #ffffff;
+            color: transparent;
+        }
+        
+        .section-divider-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .section-divider-bottom svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+
+        .section-divider-bottom .shape-fill {
+            fill: #121212;
+        }
+
+        .glass-panel {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        .neon-shadow {
+            box-shadow: 0 0 15px rgba(204, 255, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-brand-lime selection:text-brand-black">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="absolute inset-0 bg-brand-black/90 backdrop-blur-md border-b border-white/10"></div>
+        <div class="container mx-auto px-4 py-4 relative flex justify-between items-center">
+            <a href="#" class="text-2xl font-black font-english italic tracking-tighter z-50 flex items-center gap-2">
+                <i class="fas fa-golf-ball text-brand-lime"></i>
+                <span>GOLF STUDIO <span class="text-brand-lime">SHADOW</span></span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8 font-bold text-sm">
+                <a href="#concept" class="hover:text-brand-lime transition-colors">CONCEPT</a>
+                <a href="#machines" class="hover:text-brand-lime transition-colors">VIP & MACHINES</a>
+                <a href="#price" class="hover:text-brand-lime transition-colors">PRICE</a>
+                <a href="#access" class="hover:text-brand-lime transition-colors">ACCESS</a>
+                <a href="https://apps.apple.com/jp/app/golf-studio-shadow-%E5%85%AC%E5%BC%8F%E3%82%A2%E3%83%97%E3%83%AA/id1571929200" target="_blank" class="bg-brand-lime text-brand-black px-6 py-2 rounded-full hover:bg-white hover:scale-105 transition-all neon-shadow font-black">
+                    <i class="fab fa-apple mr-2"></i>アプリで予約
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="menu-btn" class="md:hidden z-50 text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-brand-black z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8 text-xl font-bold">
+            <a href="#concept" class="mobile-link hover:text-brand-lime">CONCEPT</a>
+            <a href="#machines" class="mobile-link hover:text-brand-lime">VIP & MACHINES</a>
+            <a href="#price" class="mobile-link hover:text-brand-lime">PRICE</a>
+            <a href="#access" class="mobile-link hover:text-brand-lime">ACCESS</a>
+            <a href="https://apps.apple.com/jp/app/golf-studio-shadow-%E5%85%AC%E5%BC%8F%E3%82%A2%E3%83%97%E3%83%AA/id1571929200" target="_blank" class="mobile-link bg-brand-lime text-brand-black px-8 py-3 rounded-full"><i class="fab fa-apple mr-2"></i>アプリで予約</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-black pt-20">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <!-- ★★★ メインビジュアル（一番上の大きな画像）の画像はここ！ ★★★ -->
+            <!-- src="./main.jpg" の部分をご用意した画像ファイル名に変更してください -->
+            <img src="./main.jpg" onerror="this.src='https://images.unsplash.com/photo-1535131749006-b7f58c99034b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'" class="w-full h-full object-cover opacity-40" alt="Main Visual">
+            <!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/50 to-transparent"></div>
+            <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="container mx-auto px-4 relative z-30 pb-24 grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-left reveal active">
+                <div class="inline-block bg-brand-pink text-white font-bold px-4 py-1 rounded-full mb-6 transform -rotate-2 border border-white/20">
+                    📍 大阪市生野区・北巽駅
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6 drop-shadow-2xl">
+                    PLAY <span class="text-brand-lime font-english italic">GOLF</span><br>
+                    IN THE <span class="text-outline">SHADOW.</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-gray-200 mb-8 font-bold leading-relaxed drop-shadow-lg">
+                    <span class="text-brand-lime">大阪トップクラスのリーズナブルさ</span>で、<br>
+                    高級感あふれるゴルフライフを。<br>
+                    大人の隠れ家で、ただひたすらに白球と向き合う時間を。
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#price" class="group relative bg-brand-lime text-brand-black font-black text-lg px-8 py-4 rounded-full overflow-hidden transition-all hover:scale-105 neon-shadow text-center flex items-center justify-center shadow-lg">
+                        <span class="relative z-10">衝撃の料金プランを見る</span>
+                        <div class="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                    </a>
+                    <a href="https://apps.apple.com/jp/app/golf-studio-shadow-%E5%85%AC%E5%BC%8F%E3%82%A2%E3%83%97%E3%83%AA/id1571929200" target="_blank" class="border-2 border-white/30 bg-black/30 backdrop-blur-md text-white font-bold text-lg px-8 py-4 rounded-full hover:bg-white/20 transition-all text-center">
+                        <i class="fab fa-apple mr-2"></i>アプリで予約
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scrolling Marquee -->
+        <div class="absolute bottom-10 left-0 w-full z-20 pointer-events-none">
+            <div class="bg-brand-lime text-brand-black py-3 overflow-hidden whitespace-nowrap border-t-4 border-b-4 border-black font-english font-black text-xl opacity-90 transform -rotate-1 shadow-lg">
+                <div class="inline-block animate-marquee">
+                    GOLF STUDIO SHADOW  ///  OSAKA IKUNO  ///  SKY TRAK+ VIP ROOM  ///  OPEN EVERYDAY (EXCEPT MON)  ///  RESERVATION BY APP  ///  GOLF STUDIO SHADOW  ///
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Concept -->
+    <section id="concept" class="py-20 bg-brand-dark relative z-10">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-cyan font-english font-bold tracking-widest text-sm">CONCEPT</span>
+                <h2 class="text-3xl md:text-5xl font-black mt-2 mb-6">
+                    「高い」イメージを、<br>破壊する。
+                </h2>
+                <p class="text-gray-400 font-bold max-w-2xl mx-auto leading-loose">
+                    高級感あふれる内装、最新鋭のシミュレーター。<br>
+                    本来なら高額な会員制クラブにあるべき設備を、<br>
+                    SHADOWでは<span class="text-brand-lime text-lg border-b border-brand-lime">大阪トップクラスのリーズナブルな価格</span>で提供します。<br>
+                    「良い環境で練習したいけど、高いのはちょっと…」<br>
+                    そんなあなたのための、理想の練習場です。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="glass-panel p-8 rounded-2xl relative overflow-hidden hover:border-brand-lime transition-colors duration-300 reveal delay-100">
+                    <i class="fas fa-tags text-4xl text-brand-lime mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">圧倒的なコストパフォーマンス</h3>
+                    <p class="text-sm text-gray-400">単発1,800円〜という驚きの価格設定。高級店のような空間で、お財布を気にせず練習に没頭できます。</p>
+                </div>
+                 <!-- Feature 2 -->
+                 <div class="glass-panel p-8 rounded-2xl relative overflow-hidden hover:border-brand-pink transition-colors duration-300 reveal delay-200">
+                    <i class="fas fa-gem text-4xl text-brand-pink mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">妥協なきハイクオリティ</h3>
+                    <p class="text-sm text-gray-400">安いからといって設備は妥協しません。VIPルームには最新のSKY TRAK+を導入し、データ計測も完璧。</p>
+                </div>
+                 <!-- Feature 3 -->
+                 <div class="glass-panel p-8 rounded-2xl relative overflow-hidden hover:border-brand-cyan transition-colors duration-300 reveal delay-300">
+                    <i class="fas fa-mobile-alt text-4xl text-brand-cyan mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">スマートに利用</h3>
+                    <p class="text-sm text-gray-400">予約・決済はすべてアプリで完結。無駄な手続きや対面の煩わしさは一切ありません。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIP Room & SKY TRAK+ Emphasis -->
+    <section id="machines" class="py-24 bg-brand-black relative overflow-hidden">
+        <!-- 背景装飾 -->
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-pink/10 rounded-full blur-[100px]"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <!-- VIP ROOM Special Section -->
+            <div class="border border-white/10 rounded-3xl p-1 bg-gradient-to-br from-gray-800 via-gray-900 to-black reveal mb-24">
+                <div class="bg-brand-black/90 rounded-[20px] p-8 md:p-12 overflow-hidden relative">
+                    <!-- Gold Accent -->
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-black via-brand-gold to-brand-black"></div>
+                    
+                    <div class="flex flex-col md:flex-row gap-12 items-center">
+                        <!-- Left: Text Info -->
+                        <div class="md:w-5/12 z-10">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="bg-brand-gold text-black font-black px-3 py-1 rounded text-xs tracking-wider">PREMIUM</span>
+                                <span class="text-brand-pink font-bold text-sm tracking-widest">VIP PRIVATE ROOM</span>
+                            </div>
+                            
+                            <h2 class="text-4xl md:text-5xl font-black mb-6 leading-tight">
+                                SKY TRAK <span class="text-brand-pink text-5xl md:text-6xl italic relative inline-block">
+                                    +
+                                    <span class="absolute -top-1 -right-4 text-xs font-sans not-italic text-white bg-brand-pink px-1 rounded">PLUS</span>
+                                </span>
+                                <br><span class="text-2xl text-gray-400 font-bold">独占導入</span>
+                            </h2>
+                            
+                            <p class="text-gray-300 mb-8 leading-relaxed">
+                                大阪の練習場でも導入例の少ない、最新鋭弾道測定機<strong class="text-white">「SKY TRAK+」</strong>をVIPルームに完備。
+                                デュアルドップラーレーダーが「クラブヘッドの挙動」まで正確に可視化します。
+                                <br><br>
+                                <span class="text-brand-gold font-bold">この設備を、この価格で使えるのはSHADOWだけ。</span>
+                            </p>
+
+                            <!-- Features List -->
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-center bg-white/5 p-3 rounded-lg border border-white/10">
+                                    <div class="w-10 h-10 rounded-full bg-brand-pink/20 flex items-center justify-center text-brand-pink mr-4">
+                                        <i class="fas fa-radar"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm text-gray-400">Dual Doppler Radar</div>
+                                        <div class="font-bold text-white">クラブ軌道・フェース角を完全可視化</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center bg-white/5 p-3 rounded-lg border border-white/10">
+                                    <div class="w-10 h-10 rounded-full bg-brand-cyan/20 flex items-center justify-center text-brand-cyan mr-4">
+                                        <i class="fas fa-bullseye"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm text-gray-400">Impact Data</div>
+                                        <div class="font-bold text-white">ミート率・入射角を正確に分析</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Image Emphasis -->
+                        <div class="md:w-7/12 relative w-full">
+                            <!-- Image Container -->
+                            <div class="relative rounded-2xl p-2 border border-brand-pink/30 shadow-[0_0_50px_rgba(255,0,153,0.15)] bg-black/50">
+                                <div class="relative rounded-xl overflow-hidden aspect-[4/3] group">
+                                    <!-- ★★★ VIPルーム（SKY TRAK+）の画像はここ！ ★★★ -->
+                                    <!-- src="./vip.jpg" の部分をご用意した画像ファイル名に変更してください -->
+                                    <img src="./vip.jpg" onerror="this.src='https://images.unsplash.com/photo-1596700877843-1647f1c1f729?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80'" alt="VIP Room with SkyTrak+" class="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-105">
+                                    <!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
+                                    
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80"></div>
+                                    
+                                    <div class="absolute bottom-6 left-6">
+                                        <div class="text-brand-pink font-black text-3xl font-english italic drop-shadow-md">SKY TRAK +</div>
+                                        <div class="text-white text-sm font-bold opacity-80">Professional Edition</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Simulation Room (Regular) -->
+            <div class="grid md:grid-cols-2 gap-12 items-center reveal">
+                <div class="md:order-1">
+                     <div class="relative rounded-3xl overflow-hidden border border-brand-lime/30 shadow-2xl aspect-video group">
+                        <!-- ★★★ シミュレーションルーム（オープン打席）の画像はここ！ ★★★ -->
+                        <!-- src="./booth.jpg" の部分をご用意した画像ファイル名に変更してください -->
+                        <img src="./booth.jpg" onerror="this.src='https://images.unsplash.com/photo-1593111774240-d529f12db464?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'" alt="Simulation Room" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700">
+                        <!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent p-6">
+                            <span class="font-black text-2xl italic text-brand-lime">OPEN BOOTH</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:order-2">
+                    <div class="inline-block bg-brand-lime text-brand-black px-3 py-1 rounded text-xs font-bold mb-4">オープン打席 (2打席)</div>
+                    <h3 class="text-3xl font-black mb-4">SIMULATION ROOM <br><span class="text-brand-lime text-xl block mt-1">with SKY TRAK</span></h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        集中して練習に取り組めるオープンブース。
+                        世界中で信頼される弾道測定機「SKY TRAK」を完備。
+                        スピン量や打ち出し角を数値で確認しながら、効率的な練習が可能です。
+                        2名様まで同料金でご利用いただけます。
+                    </p>
+                    <div class="inline-block border-2 border-brand-lime text-brand-lime px-4 py-2 font-bold rounded-lg transform -rotate-2">
+                        驚きの低価格で利用可能！
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing System -->
+    <section id="price" class="py-24 bg-brand-gray relative">
+        <div class="section-divider-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill" fill="#0a0a0a"></path>
+            </svg>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <span class="bg-brand-gold text-brand-black px-4 py-1 rounded-full font-bold text-sm tracking-wider shadow-lg">OSAKA'S BEST VALUE</span>
+                <h2 class="text-4xl md:text-6xl font-black mt-4 mb-4">PRICE & PLAN</h2>
+                <p class="text-gray-400">大阪トップクラスの安さを実現。<br>入会金・年会費もリーズナブルに。</p>
+            </div>
+
+            <!-- Visitor -->
+            <div class="mb-20">
+                <div class="flex items-center justify-center mb-8">
+                    <span class="bg-brand-lime text-brand-black font-black px-8 py-3 rounded-full text-xl shadow-lg transform -rotate-2 border-2 border-white">
+                        VISITOR / 単発利用
+                    </span>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <!-- Standard Room Visitor -->
+                    <div class="bg-brand-black border border-white/10 rounded-3xl p-8 flex flex-col items-center text-center hover:border-brand-lime transition-all duration-300 reveal group">
+                        <h3 class="text-2xl font-black text-white mb-2">シミュレーションルーム</h3>
+                        <p class="text-gray-500 text-sm mb-4">SKY TRAK 完備</p>
+                        <div class="flex items-end justify-center text-brand-lime mb-2">
+                             <span class="text-lg font-bold mr-1 pb-2">¥</span>
+                             <span class="text-6xl font-black font-english">1,800</span>
+                             <span class="text-sm text-white font-sans pb-2 ml-2">/ 1時間</span>
+                        </div>
+                        <div class="bg-white/10 rounded-lg px-4 py-2 mb-6">
+                            <span class="text-white font-bold"><i class="fas fa-user-friends mr-2"></i>2名様まで同料金</span>
+                        </div>
+                        <div class="w-full border-t border-dashed border-gray-700 my-4"></div>
+                        <p class="text-brand-lime font-bold">1人あたり ¥900！</p>
+                    </div>
+
+                    <!-- VIP Room Visitor -->
+                    <div class="bg-brand-black border border-white/10 rounded-3xl p-8 flex flex-col items-center text-center hover:border-brand-pink transition-all duration-300 reveal delay-100 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 bg-brand-pink text-white text-xs font-bold px-4 py-1 rounded-bl-xl z-10">SKY TRAK+</div>
+                        <h3 class="text-2xl font-black text-white mb-2">VIP 完全個室ルーム</h3>
+                        <p class="text-gray-500 text-sm mb-4">プライベート空間</p>
+                        <div class="flex items-end justify-center text-brand-pink mb-2">
+                             <span class="text-lg font-bold mr-1 pb-2">¥</span>
+                             <span class="text-6xl font-black font-english">3,000</span>
+                             <span class="text-sm text-white font-sans pb-2 ml-2">/ 1時間</span>
+                        </div>
+                        <div class="bg-white/10 rounded-lg px-4 py-2 mb-6">
+                            <span class="text-white font-bold"><i class="fas fa-users mr-2"></i>4名様まで同料金</span>
+                        </div>
+                        <div class="w-full border-t border-dashed border-gray-700 my-4"></div>
+                        <p class="text-brand-pink font-bold">1人あたり ¥750！</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Member -->
+            <div class="relative pb-10">
+                <div class="flex items-center justify-center mb-8">
+                    <span class="bg-white text-brand-black font-black px-8 py-3 rounded-full text-xl shadow-lg transform rotate-2 border-4 border-brand-gold">
+                        MEMBER / 月額会員
+                    </span>
+                </div>
+                <p class="text-center text-brand-gold font-bold mb-8 animate-pulse">
+                    ＼ 頻繁に通うなら、絶対にお得 ／
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <!-- Standard Member -->
+                    <div class="relative bg-gradient-to-b from-gray-800 to-black rounded-3xl p-1 overflow-hidden reveal hover:scale-105 transition-transform duration-300">
+                        <div class="bg-brand-black rounded-[20px] p-8 h-full flex flex-col items-center text-center">
+                            <h3 class="text-xl font-bold text-white mb-4">シミュレーション会員</h3>
+                            <div class="flex items-end justify-center text-white mb-2">
+                                <span class="text-2xl font-bold mr-1 pb-2">¥</span>
+                                <span class="text-6xl font-black font-english">6,500</span>
+                                <span class="text-sm text-gray-400 font-sans pb-2 ml-2">/ 月</span>
+                            </div>
+                            <div class="w-full h-px bg-white/10 my-6"></div>
+                            <div class="space-y-4 mb-8">
+                                <p class="text-xl font-black text-brand-lime">毎日 1時間 練習し放題</p>
+                                <p class="text-sm text-gray-400">週2回通うだけで元が取れる！<br>大阪最安級のプラン。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- VIP Member -->
+                    <div class="relative bg-gradient-to-b from-brand-pink to-purple-900 rounded-3xl p-1 overflow-hidden shadow-[0_0_30px_rgba(255,0,153,0.3)] reveal delay-100 hover:scale-105 transition-transform duration-300">
+                        <!-- Shining Effect -->
+                        <div class="absolute inset-0 z-0">
+                            <div class="absolute top-0 -left-full w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 animate-shine"></div>
+                        </div>
+                        
+                        <div class="bg-brand-black rounded-[20px] p-8 h-full flex flex-col items-center text-center relative z-10">
+                            <div class="absolute top-4 right-4 text-brand-pink"><i class="fas fa-crown text-2xl"></i></div>
+                            <h3 class="text-xl font-bold text-white mb-4">VIP 個室会員</h3>
+                            <div class="flex items-end justify-center text-white mb-2">
+                                <span class="text-2xl font-bold mr-1 pb-2">¥</span>
+                                <span class="text-6xl font-black font-english">18,000</span>
+                                <span class="text-sm text-gray-400 font-sans pb-2 ml-2">/ 月</span>
+                            </div>
+                            <div class="w-full h-px bg-white/10 my-6"></div>
+                            <div class="space-y-4 mb-8">
+                                <p class="text-xl font-black text-brand-pink">毎日 2時間 練習し放題</p>
+                                <p class="text-sm text-gray-400">最新SKY TRAK+を毎日使える。<br>最高の環境を、最高のコスパで。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://apps.apple.com/jp/app/golf-studio-shadow-%E5%85%AC%E5%BC%8F%E3%82%A2%E3%83%97%E3%83%AA/id1571929200" target="_blank" class="inline-flex items-center bg-brand-lime text-brand-black font-black text-xl px-12 py-5 rounded-full hover:bg-white transition-all shadow-2xl transform hover:-translate-y-1">
+                    <i class="fab fa-apple mr-2 text-2xl"></i> アプリで空き状況を見る
+                </a>
+                <p class="mt-4 text-xs text-gray-500">※ご予約はアプリから簡単に行えます。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Access -->
+    <section id="access" class="py-20 bg-brand-black border-t border-white/10">
+        <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+            <div class="reveal">
+                <h2 class="text-3xl font-black mb-6 border-l-4 border-brand-lime pl-4">ACCESS</h2>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-xl font-bold text-white mb-1">GOLF STUDIO SHADOW</h4>
+                        <p class="text-gray-400">〒544-0004<br>大阪市生野区北巽駅３丁目１５-２４-２階</p>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="w-8 flex justify-center"><i class="fas fa-subway text-brand-lime mt-1"></i></div>
+                        <p class="text-gray-300">地下鉄千日前線 北巽駅より徒歩すぐ</p>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="w-8 flex justify-center"><i class="fas fa-phone text-brand-lime mt-1"></i></div>
+                        <p class="text-gray-300 text-xl font-english font-bold">06-6757-1630</p>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="w-8 flex justify-center"><i class="fas fa-clock text-brand-lime mt-1"></i></div>
+                        <div>
+                            <p class="text-gray-300">平日 10:00 - 21:00</p>
+                            <p class="text-gray-300">土日祝 10:00 - 20:00</p>
+                            <p class="text-brand-pink text-sm font-bold mt-1">定休日：月曜日</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="h-80 w-full bg-gray-800 rounded-2xl overflow-hidden reveal delay-200 border border-white/10">
+                 <!-- Map: 大阪市生野区北巽 -->
+                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.072236894593!2d135.5534!3d34.6528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000de5b0b0b0b0b%3A0x0!2z5aSn6Ziq5biC55Sf6YeO5Yy65YyX5be9!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="grayscale hover:grayscale-0 transition-all duration-500"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 border-t border-white/10">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <div class="text-2xl font-black font-english italic mb-1 flex items-center justify-center md:justify-start gap-2">
+                    <i class="fas fa-golf-ball text-brand-lime"></i>
+                    <span>GOLF STUDIO <span class="text-brand-lime">SHADOW</span></span>
+                </div>
+                <p class="text-xs text-gray-500">大阪・生野区のインドアゴルフ練習場</p>
+            </div>
+            <div class="text-center md:text-right">
+                <a href="https://apps.apple.com/jp/app/golf-studio-shadow-%E5%85%AC%E5%BC%8F%E3%82%A2%E3%83%97%E3%83%AA/id1571929200" target="_blank" class="text-brand-lime hover:underline font-bold text-sm">
+                    公式アプリをダウンロード
+                </a>
+            </div>
+        </div>
+        <div class="text-center text-xs text-gray-700 mt-8">
+            &copy; 2024 GOLF STUDIO SHADOW. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            const isClosed = mobileMenu.classList.contains('translate-x-full');
+            if (isClosed) {
+                mobileMenu.classList.remove('translate-x-full');
+                menuBtn.innerHTML = '<i class="fas fa-times text-2xl"></i>';
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                menuBtn.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+                menuBtn.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
+            });
+        });
+
+        // Reveal Animation on Scroll
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 100;
+
+            revealElements.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+    </script>
+</body>
+</html>
